@@ -9,13 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            ZStack{
+                Color.hueso.ignoresSafeArea(.all)
+                VStack{
+                    Text("Que quieres convertir?").font(.system(.title, design: .rounded, weight: .bold))
+                    List(){
+                        NavigationLink(destination: temperature()){
+                            Text("Temperatura")
+                        }
+                        NavigationLink(destination: longitud()){
+                            Text("Longitud")
+                        }
+                       
+                    }.scrollContentBackground(.hidden).frame(height:400)
+                        
+                }
+            }
         }
-        .padding()
     }
 }
 
